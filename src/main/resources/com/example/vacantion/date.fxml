@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vacantion.ControllerDate">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="1041.0">
+         <children>
+            <DatePicker fx:id="dateEnd" layoutX="366.0" layoutY="99.0" />
+            <DatePicker fx:id="dateStart" layoutX="366.0" layoutY="49.0" />
+            <ListView fx:id="specialList" layoutX="41.0" layoutY="49.0" prefHeight="319.0" prefWidth="277.0" />
+         </children></AnchorPane>
+   </children>
+</HBox>

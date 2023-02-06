@@ -1,7 +1,11 @@
 package com.example.vacantion;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
+import com.example.vacantion.domain.Client;
 import com.example.vacantion.repository.*;
 import com.example.vacantion.service.Service;
 import javafx.application.Application;
@@ -13,6 +17,20 @@ public class MainFX extends Application {
     @Override
     public void start(Stage stage) throws IOException, RepositoryException {
 
+        Scanner keyboard = new Scanner(System.in);
+        List<Integer> ids = new ArrayList<>();
+
+        //read ids from keyboard and store them in a list until 0
+        while(true)
+        {
+            System.out.println("Enter client id: ");
+            int myint = keyboard.nextInt();
+            if(myint == 0)
+                break;
+            ids.add(myint);
+        }
+
+
         LocationDBRepository locationDBRepository = new LocationDBRepository("jdbc:postgresql://localhost:5432/vacantion", "postgres", "razvan");
         HotelDBRepository hotelDBRepository = new HotelDBRepository("jdbc:postgresql://localhost:5432/vacantion", "postgres", "razvan");
         SpecialOfferDBRepository specialOfferDBRepository = new SpecialOfferDBRepository("jdbc:postgresql://localhost:5432/vacantion", "postgres", "razvan");
@@ -22,7 +40,7 @@ public class MainFX extends Application {
 
         LocalDate currentDate = LocalDate.now();
 
-        service.getAllClients().forEach(client -> {
+        ids.forEach(id -> {
             FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("start.fxml"));
             Stage stage1 = new Stage();
             Scene scene = null;
@@ -34,8 +52,10 @@ public class MainFX extends Application {
             stage1.setScene(scene);
             stage1.show();
 
+            Client client = service.findClientById(id);
+
             ControllerStart controller1 = fxmlLoader.getController();
-            controller1.setService(service, stage1, client,currentDate);
+            controller1.setService(service, stage1, client ,currentDate);
         });
 
     }

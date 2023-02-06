@@ -98,4 +98,12 @@ public class Service {
         reservationDBRepository.add(new Reservation(client.getId(), hotel.getId(), startDate, endDate, noNights));
 
     }
+
+    public Client findClientById(Integer id) {
+        return clientDBRepository.getEntity(Long.valueOf(id));
+    }
+
+    public Hotel findHotelById(Double id) {
+        return hotelDBRepository.getEntity(Double.valueOf(id));
+    }
 }

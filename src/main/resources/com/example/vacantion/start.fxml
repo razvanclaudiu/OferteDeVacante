@@ -2,7 +2,8 @@
 
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
@@ -11,10 +12,23 @@
       <AnchorPane prefHeight="618.0" prefWidth="1120.0">
          <children>
             <ComboBox fx:id="locationComboBox" layoutX="500.0" layoutY="38.0" prefHeight="25.0" prefWidth="271.0" />
-            <ListView fx:id="hotelList" layoutX="56.0" layoutY="31.0" prefHeight="538.0" prefWidth="431.0" />
-            <ListView fx:id="utilizatorOferte" layoutX="750.0" layoutY="148.0" prefHeight="421.0" prefWidth="221.0" />
             <Label fx:id="numeUtilizator" layoutX="821.0" layoutY="42.0" prefHeight="17.0" prefWidth="104.0" />
             <Label fx:id="notification" layoutX="521.0" layoutY="111.0" prefHeight="17.0" prefWidth="445.0" />
+            <TableView fx:id="hotelList" layoutX="61.0" layoutY="24.0" prefHeight="553.0" prefWidth="410.0">
+              <columns>
+                <TableColumn fx:id="nameC" prefWidth="147.0" text="Name" />
+                <TableColumn fx:id="numC" prefWidth="112.0" text="NoOfRooms" />
+                  <TableColumn fx:id="priceC" prefWidth="150.0" text="PricePerNight" />
+              </columns>
+            </TableView>
+            <TableView fx:id="utilizatorOferte" layoutX="556.0" layoutY="148.0" prefHeight="421.0" prefWidth="410.0">
+               <columns>
+                  <TableColumn fx:id="sphotel" prefWidth="104.0" text="Hotel" />
+                  <TableColumn fx:id="splocatie" prefWidth="99.0" text="Locatie" />
+                  <TableColumn fx:id="spstart" prefWidth="84.0" text="startDate" />
+                  <TableColumn fx:id="spend" prefWidth="122.0" text="endDate" />
+               </columns>
+            </TableView>
          </children>
       </AnchorPane>
    </children>
